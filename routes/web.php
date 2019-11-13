@@ -71,6 +71,10 @@ Route::get('/group-test/{id}', function(Request $request, $id){
 
 
 Auth::routes();
+
+Route::get('history', 'HistoryController@index');
+Route::post('search-history', 'HistoryController@search')->name('search-history');
+
 Route::post('stripe/webhook', '\Bulkly\Http\Controllers\WebhookController@handleWebhook');
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/buffer/change/{buffer_id}', 'HomeController@bufferChange')->name('bufferChange');
